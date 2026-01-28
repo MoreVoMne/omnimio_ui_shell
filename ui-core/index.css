@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PP Editorial Font Face */
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('./fonts/Editorial/PPEditorial/PPEditorialOld-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('./fonts/Editorial/PPEditorial/PPEditorialOld-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('./fonts/Editorial/PPEditorial/PPEditorialOld-Ultrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('./fonts/Editorial/PPEditorial/PPEditorialOld-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Global styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* PP Editorial Old OpenType Features */
+/* Enable ligatures, contextual alternates, swashes, and stylistic features */
+
+/* Base OpenType feature settings - apply to all PP Editorial usages */
+.font-serif,
+[style*="PP Editorial"],
+[style*="font-family"][style*="serif"] {
+  font-feature-settings:
+    "liga" 1,  /* Standard Ligatures (fi, fl, ff) */
+    "dlig" 1,  /* Discretionary Ligatures */
+    "calt" 1,  /* Contextual Alternates (connected letters) */
+    "swsh" 1,  /* Swash variants */
+    "salt" 1;  /* Stylistic Alternates */
+  font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Italic variants - enhanced swash and flourish options */
+.font-serif.italic,
+.font-serif em,
+.font-serif i,
+[style*="PP Editorial"][style*="italic"],
+[style*="font-style: italic"] {
+  font-feature-settings:
+    "liga" 1,
+    "dlig" 1,
+    "calt" 1,
+    "swsh" 1,
+    "salt" 1,
+    "ss01" 1;  /* Stylistic Set 1 - often alternate swash forms */
+}
+
+/* Utility: Extra decorative swashes */
+.swash-on {
+  font-feature-settings:
+    "liga" 1, "dlig" 1, "calt" 1, "swsh" 1, "salt" 1, "ss01" 1, "ss02" 1 !important;
+}
+
+/* Utility: Minimal ligatures only */
+.liga-only {
+  font-feature-settings: "liga" 1, "calt" 1 !important;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* The Desk - outer matte with grid pattern */
+.desk-grid {
+  background-color: #E6E0D6;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Hard shadow utility */
+.shadow-hard {
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+/* Publishing-ish line-breaking helpers (prevents stranded punctuation/prefixes) */
+.sentence-glue {
+  white-space: nowrap;
+}
+

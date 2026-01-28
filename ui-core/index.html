@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marchie 3D Customizer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+      /* PPEditorialOld font-face declarations */
+      @font-face {
+        font-family: 'PP Editorial Old';
+        src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'PP Editorial Old';
+        src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Italic.otf') format('opentype');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'PP Editorial Old';
+        src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Ultralight.otf') format('opentype');
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'PP Editorial Old';
+        src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-UltralightItalic.otf') format('opentype');
+        font-weight: 200;
+        font-style: italic;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'PP Editorial Old';
+        src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Ultrabold.otf') format('opentype');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'PP Editorial Old';
+        src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-UltraboldItalic.otf') format('opentype');
+        font-weight: 800;
+        font-style: italic;
+        font-display: swap;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: '#F8F5F0',
+              paper: '#F8F5F0',
+              desk: '#E6E0D6',
+              charcoal: '#000000',
+              accent: '#C20000',
+            },
+            fontFamily: {
+              serif: ['"PP Editorial Old"', 'serif'],
+              sans: ['"JetBrains Mono"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            spacing: {
+              '128': '32rem',
+            },
+            borderRadius: {
+              'pill': '9999px',
+            },
+            boxShadow: {
+              'hard': '2px 2px 0px 0px rgba(0,0,0,1)',
+              'hard-sm': '1px 1px 0px 0px rgba(0,0,0,1)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F8F5F0;
+        color: #000000;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      model-viewer {
+        width: 100%;
+        height: 100%;
+        --poster-color: transparent;
+      }
+
+      /* PP Editorial Old - Enable all OpenType features globally */
+      /* Applies to: tailwind font-serif, inline styles, and CSS variable usage */
+      [class*="font-serif"],
+      .font-serif,
+      [style*="PP Editorial"],
+      [style*="Editorial Old"],
+      [style*="var(--serif)"] {
+        font-feature-settings:
+          "liga" 1,  /* Standard Ligatures */
+          "dlig" 1,  /* Discretionary Ligatures */
+          "calt" 1,  /* Contextual Alternates - connected letters */
+          "swsh" 1,  /* Swash variants */
+          "salt" 1;  /* Stylistic Alternates */
+        font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+      }
+
+      /* Ensure features inherit to children using CSS variables */
+      :root {
+        --pp-editorial-features: "liga" 1, "dlig" 1, "calt" 1, "swsh" 1, "salt" 1;
+      }
+    </style>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id="root" class="h-full w-full"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   TYPOGRAPHY SYSTEM
+   ============================================
+   
+   Usage:
+   - Use these classes instead of inline Tailwind typography
+   - All classes follow the pattern: text-{type}-{size}
+   - Mono text is uppercase by default
+   
+   ============================================ */
+
+@layer components {
+  /* ------------------------------------------
+     MONO TEXT (JetBrains Mono)
+     Used for: labels, buttons, UI elements
+     ------------------------------------------ */
+  
+  /* Tiny - 8px */
+  .text-mono-xs {
+    @apply font-mono text-[8px] uppercase tracking-widest;
+  }
+  
+  /* Small - 9px (buttons, dropdowns) */
+  .text-mono-sm {
+    @apply font-mono text-[9px] uppercase tracking-widest;
+  }
+  
+  /* Base - 10px (most common) */
+  .text-mono-base {
+    @apply font-mono text-[10px] uppercase tracking-widest;
+  }
+  
+  /* Medium - 12px */
+  .text-mono-md {
+    @apply font-mono text-[12px] uppercase tracking-widest;
+  }
+  
+  /* Responsive body text - 10px → 12px → 14px */
+  .text-mono-body {
+    @apply font-mono text-[10px] sm:text-xs lg:text-sm;
+  }
+  
+  /* Responsive body text with uppercase */
+  .text-mono-body-caps {
+    @apply font-mono text-[10px] sm:text-xs lg:text-sm uppercase tracking-wide;
+  }
+  
+  /* Section headers with extra tracking */
+  .text-mono-header {
+    @apply font-mono text-[10px] uppercase tracking-[0.3em];
+  }
+  
+  /* ------------------------------------------
+     SERIF TEXT (PP Editorial Old)
+     Used for: headings, display text
+     ------------------------------------------ */
+  
+  /* Base - 16px */
+  .text-serif-base {
+    @apply font-serif text-base;
+  }
+  
+  /* Large - 18px */
+  .text-serif-lg {
+    @apply font-serif text-lg;
+  }
+  
+  /* XL - 20px (modal headings) */
+  .text-serif-xl {
+    @apply font-serif text-xl;
+  }
+  
+  /* 2XL - 24px */
+  .text-serif-2xl {
+    @apply font-serif text-2xl;
+  }
+  
+  /* Page title - responsive 24px → 30px → 36px */
+  .text-serif-title {
+    @apply font-serif text-2xl sm:text-3xl lg:text-4xl;
+  }
+  
+  /* ------------------------------------------
+     COLOR MODIFIERS
+     Add these after the base text class
+     ------------------------------------------ */
+  
+  .text-muted {
+    @apply text-charcoal/60;
+  }
+  
+  .text-muted-light {
+    @apply text-charcoal/40;
+  }
+  
+  .text-muted-medium {
+    @apply text-charcoal/70;
+  }
+  
+  /* ------------------------------------------
+     BUTTON TEXT
+     Complete button text styling
+     ------------------------------------------ */
+  
+  .text-btn {
+    @apply font-mono text-[9px] uppercase tracking-widest whitespace-nowrap;
+  }
+  
+  .text-btn-sm {
+    @apply font-mono text-[10px] uppercase tracking-widest whitespace-nowrap;
+  }
+  
+  /* ------------------------------------------
+     LINK TEXT
+     ------------------------------------------ */
+  
+  .text-link {
+    @apply font-mono text-[10px] uppercase tracking-widest underline underline-offset-4 hover:text-accent;
+  }
+
+  /* ============================================
+     SPACING SYSTEM
+     ============================================
+     
+     Consistent padding/margin classes for layout
+     
+     ============================================ */
+
+  /* ------------------------------------------
+     CONTENT PADDING
+     Standard padding for content areas
+     ------------------------------------------ */
+  
+  /* Standard content padding - used for main content areas */
+  .content-padding {
+    @apply px-6 pb-6 sm:px-8 sm:pb-8 lg:px-12 lg:pb-12;
+  }
+  
+  /* Content padding with top - used when no sticky header above */
+  .content-padding-full {
+    @apply pt-6 px-6 pb-6 sm:px-8 sm:pb-8 lg:px-12 lg:pb-12;
+  }
+  
+  /* Sticky header padding */
+  .sticky-padding {
+    @apply pt-6 px-6 pb-4 sm:pt-5 sm:px-8 sm:pb-5 lg:pt-6 lg:px-12 lg:pb-6;
+  }
+  
+  /* Panel padding - used for side panels, cards */
+  .panel-padding {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+  
+  /* Panel padding horizontal only */
+  .panel-padding-x {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Panel padding bottom only */
+  .panel-padding-b {
+    @apply pb-4 sm:pb-6 lg:pb-8;
+  }
+  
+  /* ------------------------------------------
+     NEGATIVE MARGINS (for breaking out of containers)
+     ------------------------------------------ */
+  
+  /* Break out of content padding horizontally */
+  .break-content-x {
+    @apply -mx-6 sm:-mx-8 lg:-mx-12;
+  }
+  
+  /* Break out of content padding on all sides */
+  .break-content {
+    @apply -mx-6 sm:-mx-8 lg:-mx-12 -mb-6 sm:-mb-8 lg:-mb-12;
+  }
+  
+  /* Break out including top */
+  .break-content-full {
+    @apply -mx-6 sm:-mx-8 lg:-mx-12 -mb-6 sm:-mb-8 lg:-mb-12 -mt-6;
+  }
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Ultrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Editorial Old';
+  src: url('/fonts/Editorial/PPEditorial/PPEditorialOld-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #F8F5F0;
+  color: #000000;
+}
+
+.font-serif,
+[style*="PP Editorial"],
+[style*="font-family"][style*="serif"] {
+  font-feature-settings: "liga" 1, "dlig" 1, "calt" 1, "swsh" 1, "salt" 1;
+  font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif.italic,
+.font-serif em,
+.font-serif i,
+[style*="PP Editorial"][style*="italic"],
+[style*="font-style: italic"] {
+  font-feature-settings: "liga" 1, "dlig" 1, "calt" 1, "swsh" 1, "salt" 1, "ss01" 1;
+}
+
+.swash-on {
+  font-feature-settings: "liga" 1, "dlig" 1, "calt" 1, "swsh" 1, "salt" 1, "ss01" 1, "ss02" 1 !important;
+}
+
+.liga-only {
+  font-feature-settings: "liga" 1, "calt" 1 !important;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.desk-grid {
+  background-color: #E6E0D6;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.shadow-hard {
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+.sentence-glue {
+  white-space: nowrap;
+}
