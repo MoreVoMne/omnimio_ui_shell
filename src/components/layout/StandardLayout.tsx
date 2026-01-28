@@ -63,6 +63,7 @@ export interface StandardLayoutProps {
   };
   toolbar?: React.ReactNode;
   stickyContent?: React.ReactNode; // Content that stays fixed at top of scrollable area
+  stickyBorder?: boolean; // Show bottom border on sticky content (default: false)
   contentScroll?: 'auto' | 'none';
 }
 
@@ -72,6 +73,7 @@ const StandardLayout: React.FC<StandardLayoutProps> = ({
   footer,
   toolbar,
   stickyContent,
+  stickyBorder = false,
   contentScroll = 'auto',
 }) => {
   const hasBack = header.showBack !== false && !!header.onBack;
@@ -145,7 +147,7 @@ const StandardLayout: React.FC<StandardLayoutProps> = ({
         >
           {/* Sticky content (subtitle only, border appears on scroll) */}
           {resolvedStickyContent && (
-            <div className={`sticky top-0 z-20 bg-cream transition-colors ${isScrolled ? 'border-b border-charcoal/20' : ''}`}>
+            <div className={`sticky top-0 z-20 bg-cream transition-colors ${isScrolled ? 'border-b border-charcoal/20' : stickyBorder ? 'border-b border-charcoal/10' : ''}`}>
               <div className="bg-cream/30 sticky-padding">
                 <div className="w-full">
                   {resolvedStickyContent}
@@ -161,7 +163,7 @@ const StandardLayout: React.FC<StandardLayoutProps> = ({
               </div>
             </div>
           ) : (
-            <div className="flex-1 min-h-0 flex flex-col bg-cream/30 content-padding-full">
+            <div className="flex-1 min-h-0 flex flex-col bg-cream/30">
               <div className="w-full flex-1 min-h-0 flex flex-col">
                 {children}
               </div>

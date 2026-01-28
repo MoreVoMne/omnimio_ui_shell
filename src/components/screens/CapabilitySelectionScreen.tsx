@@ -226,6 +226,7 @@ const CapabilitySelectionScreen: React.FC<CapabilitySelectionScreenProps> = ({
         }}
         footer={footerProps}
         stickyContent={stickyContent}
+        stickyBorder={true}
         contentScroll="none"
       >
         <div className="flex-1 min-h-0 flex flex-col md:flex-row">
